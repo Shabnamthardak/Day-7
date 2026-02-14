@@ -8,7 +8,7 @@ const App = () => {
   const [notes, setNotes] = useState([])
   console.log("hello integration")
   function fetchNotes(){
-    axios.get('http://localhost:3000/notes')
+    axios.get('https://day-7-izi3.onrender.com/notes')
   .then((res)=>{
    setNotes(res.data.notes)
   }) 
@@ -22,7 +22,7 @@ function onSubmithandler(e){
   const{title , description} = e.target.elements
   console.log(title.value,description.value)
 
-  axios.post('http://localhost:3000/notes',{
+  axios.post('https://day-7-izi3.onrender.com/notes',{
     title:title.value,
     description:description.value
   })
@@ -31,7 +31,7 @@ function onSubmithandler(e){
 fetchNotes()
   })}
   function onUpdatehandler(noteId){
-  axios.patch("http://localhost:3000/notes/"+noteId,
+  axios.patch("https://day-7-izi3.onrender.com/notes/"+noteId,
 {
   description:" updated description"
 }
@@ -41,7 +41,7 @@ fetchNotes()
   })
   }
   function deleteHandler(noteId){
-  axios.delete("http://localhost:3000/notes/"+noteId)
+  axios.delete("https://day-7-izi3.onrender.com/notes/"+noteId)
   .then(res=>{
     console.log(res.data)
   fetchNotes()
